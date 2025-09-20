@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comercial Noronha</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <!---<div id="loader"> 
+    <div class="spinner"></div>
+  </div>-->
+  <header>
+    <div class="container header-container">
+      <a href="#" class="logo">
+        <img src="images/logo.png" alt="Logo Comercial Noronha" />
+        <div class="logo-texto">
+          <span class="linha-1">Comercial</span>
+          <span class="linha-2">Noronha</span>
+        </div>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#produtos">Produtos</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+ <section class="hero">
+    <div class="container">
+      <h1>Tudo para sua casa, em um só lugar.</h1>
+      <p>Tudo o que você precisa para equipar e renovar cada canto do seu lar.</p>
+      <a href="#produtos" class="btn">Ver Produtos</a>
+    </div>
+  </section>
+
+  <section id="produtos" class="produtos">
+    <div class="container">
+      <h2>Produtos em Destaque</h2>
+      <div class="grid">
+        <div class="produto">
+          <div class="img-placeholder">
+            <img src="images/panela.png" alt="White Mondial Bianca Rice 10 electric rice cooker with lid open showing cooked rice with vegetables inside, floral pattern on the appliance, text Bianca Rice 10 and Mondial on the front, in a clean and bright kitchen setting, calm and inviting atmosphere">
+          </div>
+          <h3>Panela elétrica</h3>
+          <p>Prática, moderna e eficiente.
+Prepare refeições deliciosas com rapidez e sem complicação. Ideal para o dia a dia, com função manter aquecido e fácil de limpar.
+</p>
+        </div>
+        <div class="produto">
+          <div class="img-placeholder">
+            <img src="images/airfryer.jpg" alt="Mondial AF-30 digital air fryer in black with silver accents, digital control panel illuminated, basket filled with crispy golden French fries, set on a clean white surface in a bright and inviting kitchen, modern and practical atmosphere">
+          </div>
+          <h3>Air fryer</h3>
+          <p>Crocante, saudável e sem complicação.
+Com a air fryer, você prepara suas receitas favoritas sem óleo, com muito mais praticidade e sabor. Ideal para quem busca rapidez e refeições mais leves no dia a dia.  </p>
+        </div>
+        <div class="produto">
+          <div class="img-placeholder">
+            <img src="images/tanquinho-20-kg-prata.png.png" alt="Colormaq tanquinho washing machine in silver with a transparent dark lid and control knobs on top, Colormaq logo visible on the front and lid, set against a clean white background, neutral and practical atmosphere">
+          </div>
+          <h3>Tanquinho Colormaq 20kg prata</h3>
+          <p>Potência e economia para grandes lavagens.
+Com capacidade de 20kg, este tanquinho é perfeito para famílias que precisam lavar mais em menos tempo. Compacto, eficiente e econômico — ideal para quem busca praticidade sem abrir mão da performance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ <section id="sobre" class="sobre">
+    <div class="container">
+      <h2>Sobre a Comercial Noronha</h2>
+      <p>
+        Somos uma loja especializada em utensílios de cozinha. Unimos praticidade, inovação e estilo para tornar sua experiência na cozinha mais eficiente e prazerosa.
+      </p>
+    </div>
+  </section>
+
+  <section id="contato" class="contato">
+    <div class="container">
+      <h2>Fale Conosco</h2>
+      <form action="https://formspree.io/f/{SEU_ID_AQUI}" method="POST">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" required />
+
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="telefone">Telefone</label>
+        <input type="tel" id="telefone" name="telefone" required />
+
+        <label for="mensagem">Mensagem</label>
+        <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+
+        <button type="submit" class="btn">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+  <footer id="contato">
+    <div class="container">
+      <p>&copy; 2025 Comercial Noronha. Todos os direitos reservados.</p>
+      <p>contato@comercialnoronha.com.br | Instagram: @comercialnoronha</p>
+    </div>
+  </footer>
+  
+ <!---<script src="script.js">
+  window.addEventListener("load", function () {
+    const loader = document.getElementById("loader");
+    loader.style.opacity = 0;
+    setTimeout(() => {
+      loader.style.display = "none";
+    }, 500);
+  });
+  </script> -->
+</body>
+</html>
