@@ -7,9 +7,6 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
- <!---<div id="loader"> 
-    <div class="spinner"></div>
-  </div>-->
   <header>
     <div class="container header-container">
       <a href="#" class="logo">
@@ -19,17 +16,19 @@
           <span class="linha-2">Noronha</span>
         </div>
       </a>
-      <nav>
+      <button id="menu-toggle" aria-label="Abrir menu" class="menu-toggle">&#9776;</button>
+      <nav class="menu">
         <ul>
           <li><a href="#produtos">Produtos</a></li>
           <li><a href="#sobre">Sobre</a></li>
           <li><a href="#contato">Contato</a></li>
+          <li><a href="carrinho.html">Carrinho 🛒</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
- <section class="hero">
+  <section class="hero">
     <div class="container">
       <h1>Tudo para sua casa, em um só lugar.</h1>
       <p>Tudo o que você precisa para equipar e renovar cada canto do seu lar.</p>
@@ -40,42 +39,92 @@
   <section id="produtos" class="produtos">
     <div class="container">
       <h2>Produtos em Destaque</h2>
-      <div class="grid">
-        <div class="produto">
-          <div class="img-placeholder">
-            <img src="images/panela.png" alt="White Mondial Bianca Rice 10 electric rice cooker with lid open showing cooked rice with vegetables inside, floral pattern on the appliance, text Bianca Rice 10 and Mondial on the front, in a clean and bright kitchen setting, calm and inviting atmosphere">
-          </div>
-          <h3>Panela elétrica</h3>
-          <p>Prática, moderna e eficiente.
-Prepare refeições deliciosas com rapidez e sem complicação. Ideal para o dia a dia, com função manter aquecido e fácil de limpar.
-</p>
-        </div>
-        <div class="produto">
-          <div class="img-placeholder">
-            <img src="images/airfryer.jpg" alt="Mondial AF-30 digital air fryer in black with silver accents, digital control panel illuminated, basket filled with crispy golden French fries, set on a clean white surface in a bright and inviting kitchen, modern and practical atmosphere">
-          </div>
-          <h3>Air fryer</h3>
-          <p>Crocante, saudável e sem complicação.
-Com a air fryer, você prepara suas receitas favoritas sem óleo, com muito mais praticidade e sabor. Ideal para quem busca rapidez e refeições mais leves no dia a dia.  </p>
-        </div>
-        <div class="produto">
-          <div class="img-placeholder">
-            <img src="images/tanquinho-20-kg-prata.png.png" alt="Colormaq tanquinho washing machine in silver with a transparent dark lid and control knobs on top, Colormaq logo visible on the front and lid, set against a clean white background, neutral and practical atmosphere">
-          </div>
-          <h3>Tanquinho Colormaq 20kg prata</h3>
-          <p>Potência e economia para grandes lavagens.
-Com capacidade de 20kg, este tanquinho é perfeito para famílias que precisam lavar mais em menos tempo. Compacto, eficiente e econômico — ideal para quem busca praticidade sem abrir mão da performance.</p>
-        </div>
+      <div class="search-container">
+  <input type="text" id="search-input" placeholder="Buscar produto..." />
+</div>
+     <!-- Produtos em Destaque -->
+<div class="grid">
+  <div class="produto">
+    <a href="produto.html?id=panela-eletrica">
+      <div class="img-placeholder">
+        <img src="images/panela.png" alt="Panela elétrica">
       </div>
-    </div>
+    </a>
+    <h3><a href="produto.html?id=panela-eletrica">Panela elétrica</a></h3>
+    <p>Prática, moderna e eficiente. Prepare refeições deliciosas com rapidez e sem complicação.</p>
+  </div>
+
+  <div class="produto">
+    <a href="produto.html?id=airfryer">
+      <div class="img-placeholder">
+        <img src="images/airfryer.jpg" alt="Air fryer">
+      </div>
+    </a>
+    <h3><a href="produto.html?id=airfryer">Air fryer</a></h3>
+    <p>Crocante, saudável e sem complicação. Prepare receitas sem óleo com muito mais sabor.</p>
+  </div>
+
+  <div class="produto">
+    <a href="produto.html?id=tanquinho-colormaq">
+      <div class="img-placeholder">
+        <img src="images/tanquinho-20-kg-prata.png.png" alt="Tanquinho Colormaq">
+      </div>
+    </a>
+    <h3><a href="produto.html?id=tanquinho-colormaq">Tanquinho Colormaq 20kg prata</a></h3>
+    <p>Potência e economia para grandes lavagens. Compacto, eficiente e econômico.</p>
+  </div>
+</div>
+
   </section>
 
- <section id="sobre" class="sobre">
+
+  <div class="container ver-mais-container">
+    <button id="ver-mais-btn" class="btn">Ver mais</button>
+  </div>
+
+
+  <section id="outros-produtos" class="produtos hidden">
+    <div class="container">
+      <h2>Outros Produtos</h2>
+     <!-- Outros Produtos -->
+<div class="grid">
+  <div class="produto">
+    <a href="produto.html?id=liquidificador-turbo">
+      <div class="img-placeholder">
+        <img src="images/liquidificador.jpg" alt="Liquidificador Turbo">
+      </div>
+    </a>
+    <h3><a href="produto.html?id=liquidificador-turbo">Liquidificador Turbo</a></h3>
+    <p>Alta performance para sucos e vitaminas. Design moderno e fácil de limpar.</p>
+  </div>
+
+  <div class="produto">
+    <a href="produto.html?id=ventilador-silencioso">
+      <div class="img-placeholder">
+        <img src="images/ventilador.jpg" alt="Ventilador Silencioso">
+      </div>
+    </a>
+    <h3><a href="produto.html?id=ventilador-silencioso">Ventilador Silencioso</a></h3>
+    <p>Potente, silencioso e com ajuste de inclinação. Ideal para dias quentes.</p>
+  </div>
+
+  <div class="produto">
+    <a href="produto.html?id=sanduicheira">
+      <div class="img-placeholder">
+        <img src="images/sanduicheira.jpg" alt="Sanduicheira">
+      </div>
+    </a>
+    <h3><a href="produto.html?id=sanduicheira">Sanduicheira</a></h3>
+    <p>Prepare lanches quentinhos em minutos com placas antiaderentes e aquecimento duplo.</p>
+  </div>
+</div>
+
+  </section>
+
+  <section id="sobre" class="sobre">
     <div class="container">
       <h2>Sobre a Comercial Noronha</h2>
-      <p>
-        Somos uma loja especializada em utensílios de cozinha. Unimos praticidade, inovação e estilo para tornar sua experiência na cozinha mais eficiente e prazerosa.
-      </p>
+      <p>Somos uma loja especializada em produtos para o seu lar. Unimos praticidade, inovação e estilo para tornar sua experiência mais eficiente e prazerosa.</p>
     </div>
   </section>
 
@@ -85,16 +134,12 @@ Com capacidade de 20kg, este tanquinho é perfeito para famílias que precisam l
       <form action="https://formspree.io/f/{SEU_ID_AQUI}" method="POST">
         <label for="nome">Nome</label>
         <input type="text" id="nome" name="nome" required />
-
         <label for="email">E-mail</label>
         <input type="email" id="email" name="email" required />
-
         <label for="telefone">Telefone</label>
         <input type="tel" id="telefone" name="telefone" required />
-
         <label for="mensagem">Mensagem</label>
         <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
-
         <button type="submit" class="btn">Enviar</button>
       </form>
     </div>
@@ -106,15 +151,51 @@ Com capacidade de 20kg, este tanquinho é perfeito para famílias que precisam l
       <p>contato@comercialnoronha.com.br | Instagram: @comercialnoronha</p>
     </div>
   </footer>
-  
- <!---<script src="script.js">
-  window.addEventListener("load", function () {
-    const loader = document.getElementById("loader");
-    loader.style.opacity = 0;
-    setTimeout(() => {
-      loader.style.display = "none";
-    }, 500);
+
+  <script>
+  // Menu responsivo (hambúrguer)
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.querySelector("nav ul");
+  toggle.addEventListener("click", () => {
+    menu.classList.toggle("active");
   });
-  </script> -->
+
+  // Botão "Ver mais"
+  const verMaisBtn = document.getElementById("ver-mais-btn");
+  const outrosProdutos = document.getElementById("outros-produtos");
+
+  verMaisBtn.addEventListener("click", () => {
+    outrosProdutos.classList.toggle("hidden");
+    verMaisBtn.textContent = outrosProdutos.classList.contains("hidden") ? "Ver mais" : "Ver menos";
+
+    // Atualiza o filtro ao mostrar novos produtos
+    const event = new Event('input');
+    searchInput.dispatchEvent(event);
+  });
+
+  // Campo de busca
+  const searchInput = document.getElementById('search-input');
+
+  // Função para obter todos os produtos (visíveis e do "ver mais")
+  const obterTodosProdutos = () => document.querySelectorAll('#produtos .produto, #outros-produtos .produto');
+
+  // Filtro de produtos em tempo real
+  searchInput.addEventListener('input', () => {
+    const termoBusca = searchInput.value.toLowerCase();
+    const produtos = obterTodosProdutos();
+
+    produtos.forEach(produto => {
+      const titulo = produto.querySelector('h3').textContent.toLowerCase();
+      const descricao = produto.querySelector('p').textContent.toLowerCase();
+      const corresponde = titulo.includes(termoBusca) || descricao.includes(termoBusca);
+
+      if (corresponde) {
+        produto.classList.remove('hidden');
+      } else {
+        produto.classList.add('hidden');
+      }
+    });
+  });
+</script>
 </body>
 </html>
