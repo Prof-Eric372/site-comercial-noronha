@@ -270,6 +270,31 @@ footer {
   font-size: 0.9rem;
 }
 
+/* Botão verde */
+.btn-verde {
+  background-color: #28a745;
+  color: #fff;
+  padding: 12px 30px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+  border: none;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.btn-verde:hover {
+  background-color: #218838;
+}
+
+/* Centralizar container do botão */
+.checkout-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+
 /* Responsividade */
 @media (max-width: 768px) {
   .header-container {

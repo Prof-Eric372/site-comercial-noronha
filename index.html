@@ -22,7 +22,12 @@
           <li><a href="#produtos">Produtos</a></li>
           <li><a href="#sobre">Sobre</a></li>
           <li><a href="#contato">Contato</a></li>
-          <li><a href="carrinho.html">Carrinho 🛒</a></li>
+          <li>
+  <a href="carrinho.html">
+    🛒 Carrinho <span id="contador-carrinho">(0)</span>
+  </a>
+</li>
+ 
         </ul>
       </nav>
     </div>
@@ -197,5 +202,10 @@
     });
   });
 </script>
+<script src="carrinho-utils.js"></script>
+<script>
+  atualizarContadorCarrinho();
+</script>
+
 </body>
 </html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Checkout - Comercial Noronha</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .checkout-container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .resumo-carrinho {
+      margin-bottom: 40px;
+    }
+
+    .resumo-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    form input {
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .btn-finalizar {
+      background-color: #28a745;
+      color: white;
+      font-weight: bold;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-finalizar:hover {
+      background-color: #218838;
+    }
+
+    .mensagem-sucesso {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #28a745;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="checkout-container">
+    <h1>Finalizar Pedido</h1>
+
+    <div class="resumo-carrinho" id="resumo-carrinho">
+      <h2>Resumo do Carrinho</h2>
+      <!-- Itens serão inseridos aqui via JS -->
+    </div>
+
+    <form id="checkout-form">
+      <h2>Dados do Cliente</h2>
+
+      <input type="text" name="nome" placeholder="Nome completo" required />
+      <input type="text" name="cpf" placeholder="CPF" required />
+      <input type="text" name="endereco" placeholder="Endereço completo" required />
+      <input type="email" name="email" placeholder="E-mail" required />
+      <input type="tel" name="telefone" placeholder="Telefone" required />
+
+      <button type="submit" class="btn-finalizar">Finalizar Pedido</button>
+    </form>
+
+    <div class="mensagem-sucesso" id="mensagem-sucesso" style="display: none;">
+      ✅ Pedido realizado com sucesso! Obrigado pela compra.
+    </div>
+  </div>
+
+  <script src="carrinho-utils.js"></script>
+  <script>
+    atualizarContadorCarrinho();
+
+    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    const resumo = document.getElementById('resumo-carrinho');
+
+    let total = 0;
+
+    if (carrinho.length === 0) {
+      resumo.innerHTML = "<p>Seu carrinho está vazio.</p>";
+    } else {
+      carrinho.forEach(produto => {
+        const subtotal = produto.preco * produto.quantidade;
+        total += subtotal;
+
+        const item = document.createElement('div');
+        item.classList.add('resumo-item');
+        item.innerHTML = `
+          <span>${produto.nome} (x${produto.quantidade})</span>
+          <span>R$ ${subtotal.toFixed(2)}</span>
+        `;
+        resumo.appendChild(item);
+      });
+
+      const totalDiv = document.createElement('div');
+      totalDiv.classList.add('resumo-item');
+      totalDiv.style.fontWeight = 'bold';
+      totalDiv.innerHTML = `<span>Total</span><span>R$ ${total.toFixed(2)}</span>`;
+      resumo.appendChild(totalDiv);
+    }
+
+    // Manipula o envio do formulário
+    const form = document.getElementById('checkout-form');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Simulação de envio do pedido
+      document.getElementById('mensagem-sucesso').style.display = 'block';
+
+      // Limpa o carrinho
+      localStorage.removeItem('carrinho');
+      atualizarContadorCarrinho();
+
+      // Opcional: desabilita o botão após envio
+      form.querySelector('button').disabled = true;
+    });
+  </script>
+
+</body>
+</html>

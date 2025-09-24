@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Carrinho - Comercial Noronha</title>
   <link rel="stylesheet" href="style.css" />
   <style>
+    /* CSS específico para a página de carrinho */
     .carrinho-container {
       max-width: 800px;
       margin: 40px auto;
@@ -24,18 +25,18 @@
       padding-bottom: 10px;
     }
 
-    .item-carrinho img {
-      width: 80px;
-      height: 80px;
-      object-fit: cover;
-      border-radius: 6px;
-      margin-right: 15px;
-    }
-
     .item-info {
       flex: 1;
       display: flex;
       align-items: center;
+      gap: 15px;
+    }
+
+    .item-info img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 6px;
     }
 
     .item-info h3 {
@@ -46,6 +47,37 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      margin-top: 5px;
+    }
+
+    .quantidade button {
+      width: 30px;
+      height: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      transition: background-color 0.2s ease;
+    }
+
+    .quantidade button:hover {
+      background-color: #555;
+    }
+
+    .btn-remover {
+      background-color: #e74c3c;
+      color: #fff;
+      padding: 8px 14px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-remover:hover {
+      background-color: #c0392b;
     }
 
     .total {
@@ -55,46 +87,65 @@
       margin-top: 30px;
     }
 
-    .btn-remover {
-      background-color: #e74c3c;
-      color: #fff;
-      padding: 6px 12px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
+    .voltar-container {
+      text-align: center;
+      margin-top: 30px;
     }
 
-    .btn-remover:hover {
-      background-color: #c0392b;
+    .voltar-container a {
+      display: inline-block;
+      padding: 12px 25px;
+      background-color: #333;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    .voltar-container a:hover {
+      background-color: #555;
+    }
+
+    /* Responsividade simples */
+    @media (max-width: 600px) {
+      .item-carrinho {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .item-info {
+        margin-bottom: 10px;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="container header-container">
-      <a href="index.html" class="logo">
-        <img src="images/logo.png" alt="Logo Comercial Noronha" />
-        <div class="logo-texto">
-          <span class="linha-1">Comercial</span>
-          <span class="linha-2">Noronha</span>
-        </div>
-      </a>
-    </div>
-  </header>
+  <div class="carrinho-container">
+    <h1>Seu Carrinho <span id="contador-carrinho"></span></h1>
+    <div id="carrinho-itens"></div>
+    <div class="total" id="total-geral">Total: R$ 0,00</div>
 
-  <main>
-    <div class="carrinho-container">
-      <h1>Seu Carrinho</h1>
-      <div id="carrinho-itens"></div>
-      <div class="total" id="total-geral">Total: R$ 0,00</div>
+    <div class="voltar-container">
+      <a href="index.html">← Voltar à loja</a>
     </div>
-  </main>
+  </div>
+  <div class="checkout-container">
+  <a href="checkout.html" class="btn btn-verde">Finalizar Compra</a>
+</div>
 
-  <script src="produtos.js"></script>
+
   <script>
-    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
     const carrinhoContainer = document.getElementById('carrinho-itens');
     const totalGeral = document.getElementById('total-geral');
+
+    function atualizarContadorCarrinho() {
+      const totalItens = carrinho.reduce((soma, item) => soma + item.quantidade, 0);
+      const contador = document.getElementById('contador-carrinho');
+      if (contador) {
+        contador.textContent = totalItens > 0 ? `(${totalItens})` : '';
+      }
+    }
 
     function atualizarCarrinho() {
       carrinhoContainer.innerHTML = '';
@@ -103,6 +154,8 @@
       if (carrinho.length === 0) {
         carrinhoContainer.innerHTML = '<p>Seu carrinho está vazio.</p>';
         totalGeral.textContent = 'Total: R$ 0,00';
+        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+        atualizarContadorCarrinho();
         return;
       }
 
@@ -135,21 +188,23 @@
 
       totalGeral.textContent = `Total: R$ ${total.toFixed(2)}`;
       localStorage.setItem('carrinho', JSON.stringify(carrinho));
+      atualizarContadorCarrinho();
     }
 
     function removerItem(index) {
-      carrinho.splice(index, 1);
+      carrinho = carrinho.filter((_, i) => i !== index);
       atualizarCarrinho();
     }
 
     function alterarQuantidade(index, delta) {
       carrinho[index].quantidade += delta;
       if (carrinho[index].quantidade <= 0) {
-        carrinho.splice(index, 1);
+        carrinho = carrinho.filter((_, i) => i !== index);
       }
       atualizarCarrinho();
     }
 
+    // Inicializa o carrinho e contador
     atualizarCarrinho();
   </script>
 </body>
